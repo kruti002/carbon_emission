@@ -4,6 +4,7 @@ import 'package:carbon/leader.dart';
 import 'package:carbon/profile.dart';
 import 'package:flutter/material.dart';
 
+import 'new_profile.dart';
 import 'progress_bar.dart';
 
 void main() {
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: Center(
             child: _selectedIndex == 0
-                ? EmissionTrackerScreen()
+                ? EcoTrackInsightsScreen()
                 : _selectedIndex == 1
                     ? LeaderboardScreen()
                     : ProfileScreen()),
