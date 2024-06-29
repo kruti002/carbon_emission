@@ -1,3 +1,4 @@
+import 'package:carbon/envimpactscreen.dart';
 import 'package:carbon/home.dart';
 import 'package:carbon/leader.dart';
 import 'package:carbon/profile.dart';
@@ -39,13 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+            appBar: AppBar(
         title: Text('EcoCare'),
-        backgroundColor: Color(0xFF277548),
+        backgroundColor: Color(0xFF81A97D),
       ),
       body: Center(
         child: _selectedIndex == 0
-            ? HomeScreen()
+            ? EnvironmentalImpactScreen()
             : _selectedIndex == 1
                 ? LeaderboardScreen()
                 : ProfileScreen()

@@ -18,13 +18,13 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                'Vikas Assudani',
+                'John Doe',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              Text(
-                'UI/UX Designer',
-                style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-              ),
+              // Text(
+              //   'UI/UX Designer',
+              //   style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+              // ),
               SizedBox(height: 24),
               InfoBox(
                 label: 'Your Email',
@@ -44,6 +44,11 @@ class ProfileScreen extends StatelessWidget {
               InfoBox(
                 label: 'My Goals',
                 value: 'Reduce electricity usage by 10%',
+                icon: Icons.flag,
+              ),
+              InfoBox(
+                label: 'Basic Information',
+                value: 'Number of cars: 4',
                 icon: Icons.flag,
               ),
             ],
