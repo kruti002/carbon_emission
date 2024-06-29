@@ -1,8 +1,10 @@
-import 'package:carbon/envimpactscreen.dart';
+import 'package:carbon/charts_example.dart';
 import 'package:carbon/home.dart';
 import 'package:carbon/leader.dart';
 import 'package:carbon/profile.dart';
 import 'package:flutter/material.dart';
+
+import 'progress_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: Center(
             child: _selectedIndex == 0
-                ? HomeScreen()
+                ? EmissionTrackerScreen()
                 : _selectedIndex == 1
                     ? LeaderboardScreen()
                     : ProfileScreen()),
