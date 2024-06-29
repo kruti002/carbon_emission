@@ -1,4 +1,5 @@
 import 'package:carbon/charts_example.dart';
+import 'package:carbon/ecoactivities.dart';
 import 'package:carbon/home.dart';
 import 'package:carbon/leader.dart';
 import 'package:carbon/profile.dart';
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: Center(
             child: _selectedIndex == 0
-                ? EcoTrackInsightsScreen()
+                ? EcoActivities()
                 : _selectedIndex == 1
                     ? LeaderboardScreen()
                     : ProfileScreen()),
