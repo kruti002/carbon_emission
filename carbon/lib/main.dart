@@ -34,33 +34,28 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _selectedIndex = index;
     });
-    
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-            appBar: AppBar(
-        title: Text('EcoCare'),
-        backgroundColor: Color(0xFF81A97D),
-      ),
-      body: Center(
-        child: _selectedIndex == 0
-            ? EnvironmentalImpactScreen()
-            : _selectedIndex == 1
-                ? LeaderboardScreen()
-                : ProfileScreen()
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+            child: _selectedIndex == 0
+                ? HomeScreen()
+                : _selectedIndex == 1
+                    ? LeaderboardScreen()
+                    : ProfileScreen()),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Container(
+          width: 270,
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.1),
-                spreadRadius: 5,
-                blurRadius: 7,
+                spreadRadius: 7,
+                blurRadius: 10,
                 offset: Offset(0, 3),
               ),
             ],
