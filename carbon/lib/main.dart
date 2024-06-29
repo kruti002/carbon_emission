@@ -1,4 +1,6 @@
-import 'package:carbon/login.dart';
+import 'package:carbon/home.dart';
+import 'package:carbon/leader.dart';
+import 'package:carbon/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,39 +11,50 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EcoCare',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green[500]!),
-        useMaterial3: true,
+        primarySwatch: Colors.green,
       ),
-      home:  LoginScreen(),
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('EcoCare'),
-        backgroundColor: Color(0xFF277548),
-      ),
-      body: Center(
-        child: _selectedIndex == 0
-            ? HomeScreen()
-            : _selectedIndex == 1
-                ? LeaderboardScreen()
-                : ProfileScreen()
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+            child: _selectedIndex == 0
+                ? HomeScreen()
+                : _selectedIndex == 1
+                    ? LeaderboardScreen()
+                    : ProfileScreen()),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Container(
+          width: 270,
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.1),
-                spreadRadius: 5,
-                blurRadius: 7,
+                spreadRadius: 7,
+                blurRadius: 10,
                 offset: Offset(0, 3),
               ),
             ],

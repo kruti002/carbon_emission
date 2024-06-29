@@ -19,64 +19,68 @@ class LeaderboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Leaderboard')),
       body: Column(
         children: [
+          SizedBox(
+            height: 10,
+          ),
           _buildTopThree(),
           Expanded(child: _buildLeaderList()),
-          _buildCurrentUserRank(),
+          //     _buildCurrentUserRank(),
         ],
       ),
     );
   }
 
   Widget _buildTopThree() {
-  return Container(
-    height: 220,
-    padding: EdgeInsets.symmetric(horizontal: 16),
-    child: Stack(
-      alignment: Alignment.center,
+    return Container(
+      height: 220,
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: _buildTopUserAvatar(topUsers[1], 2, 100),
+          ),
+          Positioned(
+            bottom: 20,
+            child: _buildTopUserAvatar(topUsers[0], 1, 120),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: _buildTopUserAvatar(topUsers[2], 3, 100),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTopUserAvatar(User user, int rank, double size) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Positioned(
-          bottom: 0,
-          left: 0,
-          child: _buildTopUserAvatar(topUsers[1], 2, 100),
+        CircleAvatar(
+          radius: size / 2,
+          backgroundImage: NetworkImage(user.avatarUrl),
         ),
-        Positioned(
-          bottom: 20,
-          child: _buildTopUserAvatar(topUsers[0], 1, 120),
+        SizedBox(height: 8),
+        Text(
+          '#$rank',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
-        Positioned(
-          bottom: 0,
-          right: 0,
-          child: _buildTopUserAvatar(topUsers[2], 3, 100),
+        Text(
+          user.name,
+          style: TextStyle(fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
+        Text('${user.score} pts'),
       ],
-    ),
-  );
-}
- Widget _buildTopUserAvatar(User user, int rank, double size) {
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      CircleAvatar(
-        radius: size / 2,
-        backgroundImage: NetworkImage(user.avatarUrl),
-      ),
-      SizedBox(height: 8),
-      Text(
-        '#$rank',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-      ),
-      Text(
-        user.name,
-        style: TextStyle(fontWeight: FontWeight.bold),
-        textAlign: TextAlign.center,
-      ),
-      Text('${user.score} pts'),
-    ],
-  );
-}
+    );
+  }
+
   Widget _buildLeaderList() {
     return ListView.builder(
       itemCount: 22, // Showing ranks 4-25
@@ -95,7 +99,8 @@ class LeaderboardScreen extends StatelessWidget {
   }
 
   Widget _buildCurrentUserRank() {
-    int userRank = topUsers.indexWhere((user) => user.score < currentUser.score) + 1;
+    int userRank =
+        topUsers.indexWhere((user) => user.score < currentUser.score) + 1;
     if (userRank == 0) userRank = topUsers.length + 1;
 
     return Container(
@@ -111,7 +116,8 @@ class LeaderboardScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(currentUser.name, style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(currentUser.name,
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 Text('${currentUser.score} pts'),
               ],
             ),
