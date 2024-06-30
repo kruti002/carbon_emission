@@ -7,28 +7,28 @@ class EcoTrackInsightsScreen extends StatelessWidget {
       backgroundColor: Colors.grey[900],
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildProfileHeader(),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Insights',
                 style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildInsightsRow(),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 'Accomplishments',
                 style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildAccomplishmentCard('Eco champion', 'Reduce energy use by 20%!', 250, 500),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildAccomplishmentCard('Green traveler', 'Use public transport twice a week!', 1, 2),
-              Spacer(),
+              const Spacer(),
               _buildBottomNavBar(),
             ],
           ),
@@ -38,7 +38,7 @@ class EcoTrackInsightsScreen extends StatelessWidget {
   }
 
   Widget _buildProfileHeader() {
-    return Row(
+    return const Row(
       children: [
         CircleAvatar(
           radius: 25,
@@ -77,14 +77,14 @@ class EcoTrackInsightsScreen extends StatelessWidget {
     return Column(
       children: [
         Icon(icon, color: Colors.grey),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           value,
-          style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         ),
         Text(
           label,
-          style: TextStyle(color: Colors.grey, fontSize: 12),
+          style: const TextStyle(color: Colors.grey, fontSize: 12),
           textAlign: TextAlign.center,
         ),
       ],
@@ -93,7 +93,7 @@ class EcoTrackInsightsScreen extends StatelessWidget {
 
   Widget _buildAccomplishmentCard(String title, String subtitle, int progress, int total) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey[800],
         borderRadius: BorderRadius.circular(10),
@@ -103,13 +103,13 @@ class EcoTrackInsightsScreen extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Text(
             subtitle,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
               Expanded(
@@ -118,15 +118,15 @@ class EcoTrackInsightsScreen extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: progress / total,
                     backgroundColor: Colors.grey[700],
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                    valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                     minHeight: 10,
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(
                 '$progress/$total',
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ],
           ),
@@ -136,7 +136,7 @@ class EcoTrackInsightsScreen extends StatelessWidget {
   }
 
   Widget _buildBottomNavBar() {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Icon(Icons.home, color: Colors.white),

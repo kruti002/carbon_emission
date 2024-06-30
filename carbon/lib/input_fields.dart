@@ -50,17 +50,17 @@ class _ManualEntryScreenState extends State<ManualEntryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Manual Entry')),
+      appBar: AppBar(title: const Text('Manual Entry')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text(
+              const Text(
                 'Manual Entry of Data',
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               DropdownButtonFormField<String>(
                 value: _selectedTransport,
                 onChanged: (String? newValue) {
@@ -74,16 +74,16 @@ class _ManualEntryScreenState extends State<ManualEntryScreen> {
                     child: Text(option),
                   );
                 }).toList(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Select Transportation',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Select Activity Type',
                     style: TextStyle(fontSize: 16.0),
                   ),
@@ -103,10 +103,10 @@ class _ManualEntryScreenState extends State<ManualEntryScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Row(
                 children: [
-                  Text(
+                  const Text(
                     'Select Date: ',
                     style: TextStyle(fontSize: 16.0),
                   ),
@@ -114,29 +114,29 @@ class _ManualEntryScreenState extends State<ManualEntryScreen> {
                     onPressed: () => _pickDate(context),
                     child: Text(
                       "${_selectedDate.toLocal()}".split(' ')[0],
-                      style: TextStyle(fontSize: 16.0),
+                      style: const TextStyle(fontSize: 16.0),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               ElevatedButton.icon(
                 onPressed: _pickImage,
-                icon: Icon(Icons.camera_alt),
-                label: Text('Upload Image'),
+                icon: const Icon(Icons.camera_alt),
+                label: const Text('Upload Image'),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               _uploadedImage != null
                   ? Image.file(
                       File(_uploadedImage!.path),
                       height: 200.0,
                     )
-                  : Text('No image selected.'),
-              SizedBox(height: 20.0),
+                  : const Text('No image selected.'),
+              const SizedBox(height: 20.0),
               ElevatedButton.icon(
                 onPressed: _pickFile,
-                icon: Icon(Icons.upload_file),
-                label: Text('Upload File'),
+                icon: const Icon(Icons.upload_file),
+                label: const Text('Upload File'),
               ),
             ],
           ),

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -40,53 +40,57 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: backgroundColor,
-        body: Container(
-            height: MediaQuery.of(context).size.height * 0.87,
-            width: MediaQuery.of(context).size.width,
-            child: _selectedIndex == 0
-                ? HomeScreen()
-                : _selectedIndex == 1
-                    ? LeaderboardScreen()
-                    : InsightsAndTips()),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Container(
-          width: 270,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 7,
-                blurRadius: 10,
-                offset: Offset(0, 3),
-              ),
-            ],
-            borderRadius: BorderRadius.all(Radius.circular(25)),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.leaderboard),
-                label: 'Leaderboard',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: Colors.green,
-            unselectedItemColor: Colors.grey,
-            onTap: _onItemTapped,
+    return PopScope(
+      canPop: false,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: backgroundColor,
+          body: Container(
+              height: MediaQuery.of(context).size.height * 0.87,
+              width: MediaQuery.of(context).size.width,
+              child: _selectedIndex == 0
+                  ? const HomeScreen()
+                  : _selectedIndex == 1
+                      ? LeaderboardScreen()
+                      : const InsightsAndTips()),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: Container(
+            width: 270,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 7,
+                  blurRadius: 10,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+              borderRadius: const BorderRadius.all(Radius.circular(25)),
+            ),
+            child: BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.leaderboard),
+                  label: 'Leaderboard',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Profile',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.green,
+              unselectedItemColor: Colors.grey,
+              onTap: _onItemTapped,
+            ),
           ),
         ),
       ),

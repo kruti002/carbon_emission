@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class OverviewScreen extends StatelessWidget {
+  const OverviewScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE8F5E9),
+      backgroundColor: const Color(0xFFE8F5E9),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -15,39 +17,39 @@ class OverviewScreen extends StatelessWidget {
                 'Welcome back',
                 style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               ),
-              Text(
+              const Text(
                 'Rohit Patel',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Today\'s overview',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     _buildOverviewCard('CO2', '0', Colors.orange),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     _buildOverviewCard('Food', '0.7', Colors.green),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     _buildOverviewCard('Fuel', '5', Colors.orange),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildActivityItem(Icons.directions_walk, '10567', 'steps'),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildActivityItem(Icons.directions_bike, '4667', 'm'),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(icon: Icon(Icons.home), onPressed: () {}),
-                  IconButton(icon: Icon(Icons.add_circle_outline), onPressed: () {}),
-                  IconButton(icon: Icon(Icons.access_time), onPressed: () {}),
+                  IconButton(icon: const Icon(Icons.home), onPressed: () {}),
+                  IconButton(icon: const Icon(Icons.add_circle_outline), onPressed: () {}),
+                  IconButton(icon: const Icon(Icons.access_time), onPressed: () {}),
                 ],
               ),
             ],
@@ -80,12 +82,12 @@ class OverviewScreen extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, size: 30),
-        SizedBox(width: 10),
-        Text(value, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        SizedBox(width: 5),
+        const SizedBox(width: 10),
+        Text(value, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        const SizedBox(width: 5),
         Text(unit),
-        Spacer(),
-        Icon(Icons.arrow_forward_ios, size: 16),
+        const Spacer(),
+        const Icon(Icons.arrow_forward_ios, size: 16),
       ],
     );
   }

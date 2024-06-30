@@ -1,4 +1,4 @@
-import 'package:carbon/main.dart';
+import 'main.dart';
 import 'package:http/http.dart' as http;
 import 'register.dart';
 import 'constants.dart';
@@ -21,6 +21,8 @@ Future<bool> login(String username, String password) async {
 }
 
 class SignUp extends StatelessWidget {
+  const SignUp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController usernameController = TextEditingController();
@@ -32,14 +34,14 @@ class SignUp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Image.asset(
               'assets/signup.png',
               height: 200.0,
               width: 200.0,
             ),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Welcome back',
               style: TextStyle(
                 fontSize: 28.0,
@@ -47,28 +49,28 @@ class SignUp extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: 8.0),
-            Text(
+            const SizedBox(height: 8.0),
+            const Text(
               'Login to your account',
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.black54,
               ),
             ),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             InfoBox(
               controller: usernameController,
               label: 'Username',
               icon: Icons.person,
               obs: false,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             InfoBox(
                 controller: passwordController,
                 label: 'Password',
                 icon: Icons.lock,
                 obs: true),
-            SizedBox(height: 40.0),
+            const SizedBox(height: 40.0),
             Container(
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
@@ -106,18 +108,18 @@ class SignUp extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Don\'t have account ?'),
+                  const Text('Don\'t have account ?'),
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Register()));
                       },
-                      child: Text('sign up'))
+                      child: const Text('sign up'))
                 ],
               ),
             )
@@ -133,8 +135,8 @@ class InfoBox extends StatelessWidget {
   final IconData icon;
   final bool obs;
   final TextEditingController controller;
-  InfoBox(
-      {required this.label,
+  const InfoBox(
+      {super.key, required this.label,
       required this.icon,
       required this.obs,
       required this.controller});
@@ -147,7 +149,7 @@ class InfoBox extends StatelessWidget {
         height: 50,
         width: 300,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [Color(0xFF81A97D), Color(0xFFADCA90)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -157,17 +159,17 @@ class InfoBox extends StatelessWidget {
         child: Row(
           children: [
             Icon(icon, color: Colors.white),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: TextFormField(
                 obscureText: obs,
                 controller: controller,
                 decoration: InputDecoration(
                   hintText: label,
-                  hintStyle: TextStyle(color: Colors.white),
+                  hintStyle: const TextStyle(color: Colors.white),
                   border: InputBorder.none,
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),

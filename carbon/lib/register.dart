@@ -1,4 +1,5 @@
-import 'package:carbon/constants.dart';
+import 'constants.dart';
+import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'signup.dart';
@@ -33,14 +34,14 @@ class Register extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Image.asset(
               'assets/signup.png',
               height: 200.0,
               width: 200.0,
             ),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Register',
               style: TextStyle(
                 fontSize: 28.0,
@@ -48,36 +49,36 @@ class Register extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: 8.0),
-            Text(
+            const SizedBox(height: 8.0),
+            const Text(
               'Create your account',
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.black54,
               ),
             ),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             InfoBox(
               label: 'Username',
               icon: Icons.person,
               obs: false,
               controller: usernameController,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             InfoBox(
               label: 'Email id',
               icon: Icons.person,
               obs: false,
               controller: emailController,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             InfoBox(
               label: 'Password',
               icon: Icons.lock,
               obs: true,
               controller: passwordController,
             ),
-            SizedBox(height: 40.0),
+            const SizedBox(height: 40.0),
             Container(
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
@@ -92,7 +93,7 @@ class Register extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Register()));
+                      MaterialPageRoute(builder: (context) => MyHomePage()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
@@ -108,18 +109,18 @@ class Register extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Already have an account ?'),
+                  const Text('Already have an account ?'),
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => SignUp()));
+                            MaterialPageRoute(builder: (context) => const SignUp()));
                       },
-                      child: Text('Login'))
+                      child: const Text('Login'))
                 ],
               ),
             )

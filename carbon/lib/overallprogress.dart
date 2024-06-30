@@ -11,13 +11,13 @@ class OverallProgress extends StatelessWidget {
       children: [
         Text("Overall Progress", style: heading),
         Container(
-          color: Color(0xFFF0F4F8),
-          padding: EdgeInsets.all(15.0),
+          color: const Color(0xFFF0F4F8),
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("This month", style: midSize),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text("You’ve reduced your carbon footprint by 15% compared to last month!", style: normalSize),
             ]
           ),

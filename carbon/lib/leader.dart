@@ -23,7 +23,7 @@ class LeaderboardScreen extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           _buildTopThree(),
@@ -37,7 +37,7 @@ class LeaderboardScreen extends StatelessWidget {
   Widget _buildTopThree() {
     return Container(
       height: 220,
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -68,14 +68,14 @@ class LeaderboardScreen extends StatelessWidget {
           radius: size / 2,
           backgroundImage: NetworkImage(user.avatarUrl),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           '#$rank',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         Text(
           user.name,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         Text('${user.score} pts'),
@@ -106,25 +106,25 @@ class LeaderboardScreen extends StatelessWidget {
     if (userRank == 0) userRank = topUsers.length + 1;
 
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       color: Colors.grey[200],
       child: Row(
         children: [
           CircleAvatar(
             backgroundImage: NetworkImage(currentUser.avatarUrl),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(currentUser.name,
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
                 Text('${currentUser.score} pts'),
               ],
             ),
           ),
-          Text('#$userRank', style: TextStyle(fontWeight: FontWeight.bold)),
+          Text('#$userRank', style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );

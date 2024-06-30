@@ -12,12 +12,12 @@ class ProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            CircleAvatar(
+            const CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('assets/space_car.png'),
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Vikas Assudani',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
@@ -25,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
               'UI/UX Designer',
               style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             InfoBox(
               label: 'Your Email',
               value: 'vikasassudani909@gmail.com',
@@ -67,12 +67,12 @@ class InfoBox extends StatelessWidget {
           label,
           style: TextStyle(fontSize: 16, color: Colors.grey[700]),
         ),
-        SizedBox(height: 2),
+        const SizedBox(height: 2),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 8),
-          padding: EdgeInsets.all(16),
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [Color(0xFF81A97D), Color(0xFFADCA90)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -82,11 +82,11 @@ class InfoBox extends StatelessWidget {
           child: Row(
             children: [
               Icon(icon, color: Colors.white),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Expanded(
                 child: Text(
                   value,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),

@@ -9,14 +9,14 @@ class EcoActivities extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.eco),
+                    icon: const Icon(Icons.eco),
                     color: Colors.green,
                     iconSize: 40,
                     onPressed: () {},
@@ -27,24 +27,24 @@ class EcoActivities extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               EcoFriendlyWidget("Track your eco-friendly habits daily"),
               EcoFriendlyWidget("Track your eco-friendly habits daily"),
               EcoFriendlyWidget("Track your eco-friendly habits daily"),
               EcoFriendlyWidget("Track your eco-friendly habits daily"),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Center(
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                    textStyle: TextStyle(fontSize: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    textStyle: const TextStyle(fontSize: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Track Progress',
                     style: TextStyle(color: Colors.white),
                   ),
@@ -64,17 +64,17 @@ class EcoFriendlyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFF0F4F8),
-      padding: EdgeInsets.all(16.0),
-      margin: EdgeInsets.only(bottom: 12.0),
+      color: const Color(0xFFF0F4F8),
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(bottom: 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: NetworkImage('https://via.placeholder.com/150'),
             radius: 20,
           ),
-          SizedBox(width: 10.0),
+          const SizedBox(width: 10.0),
           Expanded(
             child: Text(
               value,
@@ -82,12 +82,12 @@ class EcoFriendlyWidget extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.directions_bike),
+            icon: const Icon(Icons.directions_bike),
             color: Colors.green,
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.eco),
+            icon: const Icon(Icons.eco),
             color: Colors.grey,
             onPressed: () {},
           ),

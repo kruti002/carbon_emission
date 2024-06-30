@@ -24,27 +24,27 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
           ),
           child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 colors: [Color(0xFF81A97D), Color(0xFFADCA90)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(12.0),
             ),
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Text(
                       title,
                       style: TextStyle(fontSize: 18, color: Colors.grey[700]),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 8),
-                      padding: EdgeInsets.all(4),
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(4),
                       child: Column(
                         children: [
                           Slider(
@@ -57,14 +57,14 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
                                 localValue = newValue;
                               });
                             },
-                            activeColor: Color(0xFF277548),
-                            inactiveColor: Color(0xFF899D4D),
+                            activeColor: const Color(0xFF277548),
+                            inactiveColor: const Color(0xFF899D4D),
                           ),
                           Text(
                             title == 'Number of Meals' 
                               ? localValue.toInt().toString() 
                               : localValue.toStringAsFixed(2),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -73,7 +73,7 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -83,7 +83,7 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           "OK",
                           style: TextStyle(
                             color: Color(0xFF277548), // Green color
@@ -122,7 +122,7 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Enter details',
               style: TextStyle(
                 fontSize: 24.0,
@@ -130,7 +130,7 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             buildRow('Distance Travelled', _distanceTravelled, (newValue) => setState(() => _distanceTravelled = newValue)),
             buildRow('Energy Consumption', _electricityConsumption, (newValue) => setState(() => _electricityConsumption = newValue)),
             buildRow('Waste Generated', _wasteGeneration, (newValue) => setState(() => _wasteGeneration = newValue)),
@@ -164,7 +164,7 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
           colors: [startBtn, midBtn, endBtn],
         ),
       ),
-      margin: EdgeInsets.symmetric(vertical: 5.0),
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
       child: ElevatedButton(
         onPressed: () {
           openDialog(title, currentValue, onChanged);
@@ -187,8 +187,8 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
 
   Widget buildDisplayContainer(String title, double value) {
     return Container(
-      padding: EdgeInsets.all(8.0),
-      margin: EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.all(8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(12.0),
@@ -197,7 +197,7 @@ class _EnvironmentalImpactScreenState extends State<EnvironmentalImpactScreen> {
         title == 'Number of Meals' 
           ? value.toInt().toString() 
           : value.toStringAsFixed(2),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           color: Colors.black,
         ),

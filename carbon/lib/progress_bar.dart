@@ -168,7 +168,7 @@ class _EmissionTrackerScreenState extends State<EmissionTrackerScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1500),
     )..repeat();
     _progressAnimation = Tween<double>(begin: 0, end: _progress).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
@@ -199,10 +199,10 @@ class _EmissionTrackerScreenState extends State<EmissionTrackerScreen>
       builder: (BuildContext context) {
         String inputValue = '';
         return AlertDialog(
-          title: Text('Add CO2 Emission Reduction'),
+          title: const Text('Add CO2 Emission Reduction'),
           content: TextField(
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Enter percentage to add (0-100)',
             ),
             onChanged: (value) {
@@ -211,11 +211,11 @@ class _EmissionTrackerScreenState extends State<EmissionTrackerScreen>
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () => Navigator.of(context).pop(),
             ),
             TextButton(
-              child: Text('Add'),
+              child: const Text('Add'),
               onPressed: () => Navigator.of(context).pop(inputValue),
             ),
           ],
@@ -233,17 +233,17 @@ class _EmissionTrackerScreenState extends State<EmissionTrackerScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CO2 Emission Tracker'),
+        title: const Text('CO2 Emission Tracker'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Current CO2 Emission Reduction',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             AnimatedBuilder(
               animation: _animationController,
               builder: (context, child) {
@@ -295,10 +295,10 @@ class _EmissionTrackerScreenState extends State<EmissionTrackerScreen>
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       '${(_progressAnimation.value * 100).toStringAsFixed(1)}%',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ],
                 );
@@ -310,7 +310,7 @@ class _EmissionTrackerScreenState extends State<EmissionTrackerScreen>
       floatingActionButton: FloatingActionButton(
         onPressed: _showInputDialog,
         tooltip: 'Add Progress',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

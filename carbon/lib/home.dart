@@ -1,7 +1,5 @@
-import 'package:carbon/constants.dart';
-
+import 'constants.dart';
 import 'ecoactivities.dart';
-import 'envimpactscreen.dart';
 import 'package:flutter/material.dart';
 import 'fonts.dart';
 import 'package:flutter/widgets.dart';
@@ -22,18 +20,18 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Welcome to EcoTrack", style: heading),
-                Icon(
+                const Icon(
                   Icons.search,
                   size: 30,
                 )
               ],
             ),
             Text("Track your daily eco habits mindfully", style: normalSize),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Color(0xFFF0F4F8),
+                color: const Color(0xFFF0F4F8),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -42,33 +40,33 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: 150,
                         child: Text(
                           "Stay serene like a sloth",
                           style: midSize,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => EcoActivities(),
+                              builder: (context) => const EcoActivities(),
                             ),
                           );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                              const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                           textStyle: normalSize,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Start',
                           style: TextStyle(
                               color: Colors.grey, fontWeight: FontWeight.bold),
@@ -83,9 +81,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text("Explore eco options by mood", style: midSize),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -116,7 +114,7 @@ class EcoFriendlySquare extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFD3E4CD),
+        color: const Color(0xFFD3E4CD),
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Column(
@@ -127,10 +125,10 @@ class EcoFriendlySquare extends StatelessWidget {
             size: 40.0,
             color: Colors.black,
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16.0,
               color: Colors.black,
               fontWeight: FontWeight.bold,
