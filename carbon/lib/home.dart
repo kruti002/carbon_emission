@@ -1,5 +1,9 @@
+import 'package:carbon/ecoactivities.dart';
 import 'package:carbon/envimpactscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:carbon/fonts.dart';
+import 'package:flutter/widgets.dart';
+
 // import 'eco_friendly_square.dart';
 // import 'environmental_impact_screen.dart';
 
@@ -9,13 +13,64 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Explore eco options by mood"),
+            Text("Welcome to EcoTrack", style: heading),
+            Text("Track your daily eco habits mindfully", style: normalSize),
+            SizedBox(height: 20),
+            Container(
+              padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Color(0xFFF0F4F8),
+        // borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 150,
+                child: Text(
+                  "Stay serene like a sloth",
+                  style: midSize,
+                ),
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EcoActivities(),
+                    ),
+                  );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                    textStyle: minSize,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                  ),
+                  child: Text(
+                    'Start',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+            ],
+          ),
+          Image.network("https://trackepr.com/wp-content/uploads/2024/02/epr-certificate.png", height: 100, width: 120)
+        ],
+      ),
+    ),
+    SizedBox(height: 15),
+            Text("Explore eco options by mood", style: midSize),
             SizedBox(height: 15),
             Expanded(
               child: GridView.count(
@@ -28,19 +83,6 @@ class HomeScreen extends StatelessWidget {
                   EcoFriendlySquare(icon: Icons.grass, text: 'Green Living'),
                   EcoFriendlySquare(icon: Icons.local_florist, text: 'Eco Conscious'),
                 ],
-              ),
-            ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EnvironmentalImpactScreen(),
-                    ),
-                  );
-                },
-                child: Text('Go to Environmental Impact Screen'),
               ),
             ),
           ],

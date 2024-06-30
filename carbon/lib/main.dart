@@ -1,6 +1,7 @@
 import 'package:carbon/charts_example.dart';
 import 'package:carbon/ecoactivities.dart';
 import 'package:carbon/home.dart';
+import 'package:carbon/insightstips.dart';
 import 'package:carbon/leader.dart';
 import 'package:carbon/profile.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: Center(
             child: _selectedIndex == 0
-                ? EcoActivities()
+                ? HomeScreen()
                 : _selectedIndex == 1
                     ? LeaderboardScreen()
-                    : ProfileScreen()),
+                    : InsightsAndTips()),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Container(
           width: 270,
