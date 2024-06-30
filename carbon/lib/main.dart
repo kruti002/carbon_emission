@@ -4,6 +4,7 @@ import 'input_fields.dart';
 import 'insightstips.dart';
 import 'leader.dart';
 import 'login.dart';
+import 'new_profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? LeaderboardScreen()
                       : _selectedIndex == 2
                           ? const ManualEntryScreen()
-                          : const InsightsAndTips()),
+                          : ProfileScreen()),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Container(

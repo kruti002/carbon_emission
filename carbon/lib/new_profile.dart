@@ -1,60 +1,80 @@
 import 'package:flutter/material.dart';
 
-class EcoTrackInsightsScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildProfileHeader(),
-            const SizedBox(height: 20),
-            const Text(
-              'Insights',
-              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            _buildInsightsRow(),
-            const SizedBox(height: 30),
-            const Text(
-              'Accomplishments',
-              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            _buildAccomplishmentCard('Eco champion', 'Reduce energy use by 20%!', 250, 500),
-            const SizedBox(height: 20),
-            _buildAccomplishmentCard('Green traveler', 'Use public transport twice a week!', 1, 2),
-            const Spacer(),
-            _buildBottomNavBar(),
-          ],
+      body: Stack(children: [
+        Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              'assets/background.jpg',
+              fit: BoxFit.cover,
+            )),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _buildProfileHeader(),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  const Text(
+                    'My Insights',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              _buildInsightsRow(),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  const Text(
+                    'Accomplishments',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              _buildAccomplishmentCard(
+                  'Eco champion', 'Reduce energy use by 20%!', 250, 500),
+              const SizedBox(height: 20),
+              _buildAccomplishmentCard(
+                  'Green traveler', 'Use public transport twice a week!', 1, 2),
+              const Spacer(),
+            ],
+          ),
         ),
-      ),
+      ]),
     );
   }
 
   Widget _buildProfileHeader() {
-    return const Row(
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: 25,
-          backgroundImage: AssetImage('assets/profile_image.jpg'), // Replace with your image
+          radius: 40,
+          backgroundImage:
+              AssetImage('assets/space_car.png'), // Replace with your image
         ),
-        SizedBox(width: 10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'EcoTrack Insights',
-              style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              '@ecotrack',
-              style: TextStyle(color: Colors.grey),
-            ),
-          ],
+        Text(
+          'EcoTrack Insights',
+          style: TextStyle(
+              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          '@ecotrack',
+          style: TextStyle(color: const Color(0xFFD3E4CD)),
         ),
       ],
     );
@@ -72,28 +92,39 @@ class EcoTrackInsightsScreen extends StatelessWidget {
   }
 
   Widget _buildInsightItem(String value, String label, IconData icon) {
-    return Column(
-      children: [
-        Icon(icon, color: Colors.grey),
-        const SizedBox(height: 8),
-        Text(
-          value,
-          style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          label,
-          style: const TextStyle(color: Colors.grey, fontSize: 12),
-          textAlign: TextAlign.center,
-        ),
-      ],
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        color: const Color(0xFFD3E4CD),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          const SizedBox(height: 4),
+          Icon(icon, color: Colors.black),
+          const SizedBox(height: 8),
+          Text(
+            value,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            label,
+            style: const TextStyle(color: Colors.black, fontSize: 10),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildAccomplishmentCard(String title, String subtitle, int progress, int total) {
+  Widget _buildAccomplishmentCard(
+      String title, String subtitle, int progress, int total) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey[800],
+        color: const Color(0xFFD3E4CD),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -101,11 +132,12 @@ class EcoTrackInsightsScreen extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Text(
             subtitle,
-            style: const TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.black45),
           ),
           const SizedBox(height: 10),
           Row(
@@ -116,7 +148,8 @@ class EcoTrackInsightsScreen extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: progress / total,
                     backgroundColor: Colors.grey[700],
-                    valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                    valueColor:
+                        const AlwaysStoppedAnimation<Color>(Colors.green),
                     minHeight: 10,
                   ),
                 ),
@@ -124,24 +157,12 @@ class EcoTrackInsightsScreen extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 '$progress/$total',
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.black),
               ),
             ],
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBottomNavBar() {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Icon(Icons.home, color: Colors.white),
-        Icon(Icons.search, color: Colors.grey),
-        Icon(Icons.favorite, color: Colors.grey),
-        Icon(Icons.person, color: Colors.grey),
-      ],
     );
   }
 }
