@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Result</title>
+</head>
+<body>
+    <h2>Calculation Result</h2>
+    <h3>Uploaded Food Order</h3>
+    <img src="{{ url_for('static', filename=image_file) }}" alt="Uploaded Food Order" style="max-width: 100%;">
+    <div>
+        <h3>Analysis:</h3>
+        <p>{{ result }}</p>
+    </div>
+</body>
+</html>
