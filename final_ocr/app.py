@@ -2,14 +2,14 @@ from flask import Flask, render_template, request
 from PIL import Image
 import google.generativeai as genai
 from dotenv import load_dotenv
-
+import os 
 
 # Load the environment variables from the .env file
 load_dotenv()
 app = Flask(__name__)
 
 # Configure the generative AI model with your API key
-genai.configure(api_key="AIzaSyD73TvR2zRzo6efw6cqa6CdVlawMzzNaOM")  # Replace with your actual API key
+genai.configure(api_key=os.getenv('GENAI_API_KEY')) 
 model = genai.GenerativeModel('gemini-pro-vision')
 api_key = os.getenv('GENAI_API_KEY')
 
