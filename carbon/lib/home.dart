@@ -1,11 +1,10 @@
-import 'package:carbon/ecoactivities.dart';
-import 'package:carbon/envimpactscreen.dart';
-import 'package:flutter/material.dart';
-import 'package:carbon/fonts.dart';
-import 'package:flutter/widgets.dart';
+import 'package:carbon/constants.dart';
 
-// import 'eco_friendly_square.dart';
-// import 'environmental_impact_screen.dart';
+import 'ecoactivities.dart';
+import 'envimpactscreen.dart';
+import 'package:flutter/material.dart';
+import 'fonts.dart';
+import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,63 +12,78 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Welcome to EcoTrack", style: heading),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Welcome to EcoTrack", style: heading),
+                Icon(
+                  Icons.search,
+                  size: 30,
+                )
+              ],
+            ),
             Text("Track your daily eco habits mindfully", style: normalSize),
             SizedBox(height: 20),
             Container(
               padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Color(0xFFF0F4F8),
-        // borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 150,
-                child: Text(
-                  "Stay serene like a sloth",
-                  style: midSize,
-                ),
+              decoration: BoxDecoration(
+                color: Color(0xFFF0F4F8),
+                borderRadius: BorderRadius.circular(20),
               ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EcoActivities(),
-                    ),
-                  );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                    textStyle: minSize,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 150,
+                        child: Text(
+                          "Stay serene like a sloth",
+                          style: midSize,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EcoActivities(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                          textStyle: normalSize,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0),
+                          ),
+                        ),
+                        child: Text(
+                          'Start',
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
-                  child: Text(
-                    'Start',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-            ],
-          ),
-          Image.network("https://trackepr.com/wp-content/uploads/2024/02/epr-certificate.png", height: 100, width: 120)
-        ],
-      ),
-    ),
-    SizedBox(height: 15),
+                  Image.network(
+                      "https://trackepr.com/wp-content/uploads/2024/02/epr-certificate.png",
+                      height: 100,
+                      width: 120)
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
             Text("Explore eco options by mood", style: midSize),
             SizedBox(height: 15),
             Expanded(
@@ -92,8 +106,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
-
 class EcoFriendlySquare extends StatelessWidget {
   final IconData icon;
   final String text;
@@ -105,7 +117,7 @@ class EcoFriendlySquare extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Color(0xFFD3E4CD),
-        // borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(20.0),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -129,5 +141,3 @@ class EcoFriendlySquare extends StatelessWidget {
     );
   }
 }
-
-

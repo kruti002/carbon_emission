@@ -1,15 +1,15 @@
-import 'package:carbon/main.dart';
-import 'package:http/http.dart' as http;
-import 'register.dart';
-import 'constants.dart';
+import 'package:carbon/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'signup.dart';
 
-Future<bool> login(String username, String password) async {
-  String url = 'https://54q0p9sw-5000.inc1.devtunnels.ms/login';
+Future<bool> register(String username, String password) async {
+  String url = 'https://54q0p9sw-5000.inc1.devtunnels.ms/register';
 
   Map<String, String> payload = {
     'email': username,
     'password': password,
+    'username': username,
   };
 
   final response = await http.post(Uri.parse(url), body: payload);
@@ -20,11 +20,12 @@ Future<bool> login(String username, String password) async {
   }
 }
 
-class SignUp extends StatelessWidget {
+class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor,
@@ -40,7 +41,7 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             Text(
-              'Welcome back',
+              'Register',
               style: TextStyle(
                 fontSize: 28.0,
                 fontWeight: FontWeight.bold,
@@ -49,7 +50,7 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 8.0),
             Text(
-              'Login to your account',
+              'Create your account',
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.black54,
@@ -57,17 +58,25 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 30.0),
             InfoBox(
-              controller: usernameController,
               label: 'Username',
               icon: Icons.person,
               obs: false,
+              controller: usernameController,
             ),
             SizedBox(height: 20.0),
             InfoBox(
-                controller: passwordController,
-                label: 'Password',
-                icon: Icons.lock,
-                obs: true),
+              label: 'Email id',
+              icon: Icons.person,
+              obs: false,
+              controller: emailController,
+            ),
+            SizedBox(height: 20.0),
+            InfoBox(
+              label: 'Password',
+              icon: Icons.lock,
+              obs: true,
+              controller: passwordController,
+            ),
             SizedBox(height: 40.0),
             Container(
               decoration: ShapeDecoration(
@@ -81,16 +90,9 @@ class SignUp extends StatelessWidget {
                     colors: [startBtn, midBtn, endBtn]),
               ),
               child: ElevatedButton(
-                onPressed: () async {
-                  {
-                    bool a = await login(
-                        usernameController.text, passwordController.text);
-                    print('IT NEEDS TO WORKS');
-                    a
-                        ? Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MyHomePage()))
-                        : print('error');
-                  }
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Register()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
@@ -98,7 +100,7 @@ class SignUp extends StatelessWidget {
                   minimumSize: const Size(280, 50),
                 ),
                 child: const Text(
-                  'Login',
+                  'Sign Up',
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,
@@ -111,68 +113,16 @@ class SignUp extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Don\'t have account ?'),
+                  Text('Already have an account ?'),
                   TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Register()));
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => SignUp()));
                       },
-                      child: Text('sign up'))
+                      child: Text('Login'))
                 ],
               ),
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class InfoBox extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final bool obs;
-  final TextEditingController controller;
-  InfoBox(
-      {required this.label,
-      required this.icon,
-      required this.obs,
-      required this.controller});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Container(
-        height: 50,
-        width: 300,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF81A97D), Color(0xFFADCA90)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, color: Colors.white),
-            SizedBox(width: 16),
-            Expanded(
-              child: TextFormField(
-                obscureText: obs,
-                controller: controller,
-                decoration: InputDecoration(
-                  hintText: label,
-                  hintStyle: TextStyle(color: Colors.white),
-                  border: InputBorder.none,
-                ),
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
           ],
         ),
       ),

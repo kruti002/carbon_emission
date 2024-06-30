@@ -1,12 +1,10 @@
-import 'package:carbon/charts_example.dart';
-import 'package:carbon/ecoactivities.dart';
-import 'package:carbon/home.dart';
-import 'package:carbon/insightstips.dart';
-import 'package:carbon/leader.dart';
-import 'package:carbon/profile.dart';
+import 'package:carbon/constants.dart';
 import 'package:flutter/material.dart';
-import 'new_profile.dart';
-import 'progress_bar.dart';
+
+import 'home.dart';
+import 'insightstips.dart';
+import 'leader.dart';
+import 'login.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MyHomePage(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -44,7 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
+        backgroundColor: backgroundColor,
+        body: Container(
+            height: MediaQuery.of(context).size.height * 0.87,
+            width: MediaQuery.of(context).size.width,
             child: _selectedIndex == 0
                 ? HomeScreen()
                 : _selectedIndex == 1

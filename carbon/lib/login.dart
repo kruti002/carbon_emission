@@ -1,5 +1,6 @@
-import 'package:carbon/constants.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
+import 'register.dart';
 import 'signup.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -61,7 +62,10 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 35),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                 Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Register()));
+              },
               style: OutlinedButton.styleFrom(
                 minimumSize: const Size(280, 50),
                 side: const BorderSide(color: Colors.black),
