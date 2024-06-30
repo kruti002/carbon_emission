@@ -43,15 +43,15 @@ class WeeklyBarChart extends StatelessWidget {
                     },
                   ),
                 ),
-                leftTitles: AxisTitles(
+                leftTitles: const AxisTitles(
                     sideTitles: SideTitles(showTitles: true),
                     axisNameSize: 0.5),
                 topTitles:
-                    AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                 rightTitles:
-                    AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    const AxisTitles(sideTitles: SideTitles(showTitles: false)),
               ),
-              gridData: FlGridData(show: false),
+              gridData: const FlGridData(show: false),
               borderData: FlBorderData(show: false),
               barGroups: weekData.asMap().entries.map((entry) {
                 return BarChartGroupData(

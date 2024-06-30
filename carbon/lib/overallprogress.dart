@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carbon/fonts.dart';
+import 'fonts.dart';
 
 class OverallProgress extends StatelessWidget {
   const OverallProgress({super.key});

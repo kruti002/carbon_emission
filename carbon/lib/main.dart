@@ -1,7 +1,6 @@
-import 'package:carbon/constants.dart';
 import 'package:flutter/material.dart';
-
 import 'home.dart';
+import 'input_fields.dart';
 import 'insightstips.dart';
 import 'leader.dart';
 import 'login.dart';
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'EcoTrack',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -44,19 +43,20 @@ class _MyHomePageState extends State<MyHomePage> {
       canPop: false,
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: backgroundColor,
           body: Container(
-              height: MediaQuery.of(context).size.height * 0.87,
+              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: _selectedIndex == 0
                   ? const HomeScreen()
                   : _selectedIndex == 1
                       ? LeaderboardScreen()
-                      : const InsightsAndTips()),
+                      : _selectedIndex == 2
+                          ? const ManualEntryScreen()
+                          : const InsightsAndTips()),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Container(
-            width: 270,
+            width: 300,
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -70,19 +70,33 @@ class _MyHomePageState extends State<MyHomePage> {
               borderRadius: const BorderRadius.all(Radius.circular(25)),
             ),
             child: BottomNavigationBar(
+              type: BottomNavigationBarType.values[0],
+              iconSize: 20,
               backgroundColor: Colors.transparent,
               elevation: 0,
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
+                  icon: Icon(
+                    Icons.home,
+                  ),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.leaderboard),
+                  icon: Icon(
+                    Icons.leaderboard,
+                  ),
                   label: 'Leaderboard',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
+                  icon: Icon(
+                    Icons.camera_alt,
+                  ),
+                  label: 'OCR',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person,
+                  ),
                   label: 'Profile',
                 ),
               ],

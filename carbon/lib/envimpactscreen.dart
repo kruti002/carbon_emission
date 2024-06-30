@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carbon/constants.dart';
+import 'constants.dart';
 
 class EnvironmentalImpactScreen extends StatefulWidget {
   @override

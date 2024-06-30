@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carbon/fonts.dart';
+import 'fonts.dart';
 
 class TipsToReduce extends StatelessWidget {
   const TipsToReduce({super.key});
@@ -17,7 +17,7 @@ class TipsToReduce extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TipsBox("Transportation", "Consider biking or using public transport to reduce your carbon footprint."),
-              const TipsBox("Home Energy", "Switch to energy-efficient appliances and use smart thermostats."),
+              TipsBox("Home Energy", "Switch to energy-efficient appliances and use smart thermostats."),
               TipsBox("Food", "Opt for locally sourced and seasonal produce to lower transportation emissions."),
             ],
           ),

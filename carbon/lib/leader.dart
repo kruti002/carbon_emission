@@ -1,4 +1,3 @@
-import 'package:carbon/constants.dart';
 import 'package:flutter/material.dart';
 
 class LeaderboardScreen extends StatelessWidget {
@@ -17,18 +16,29 @@ class LeaderboardScreen extends StatelessWidget {
     avatarUrl: 'https://picsum.photos/200?random=99',
   );
 
+  LeaderboardScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      body: Column(
+      body: Stack(
         children: [
+          Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Image.asset(
+                'assets/background.jpg',
+                fit: BoxFit.cover,
+              )),
           const SizedBox(
             height: 10,
           ),
-          _buildTopThree(),
-          Expanded(child: _buildLeaderList()),
-          //     _buildCurrentUserRank(),
+          Column(
+            children: [
+              _buildTopThree(),
+              Expanded(child: _buildLeaderList()),
+            ],
+          ),
         ],
       ),
     );
@@ -71,32 +81,49 @@ class LeaderboardScreen extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           '#$rank',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
         ),
         Text(
           user.name,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           textAlign: TextAlign.center,
         ),
-        Text('${user.score} pts'),
+        Text(
+          '${user.score} pts',
+          style: TextStyle(color: Colors.white),
+        ),
       ],
     );
   }
 
   Widget _buildLeaderList() {
-    return ListView.builder(
-      itemCount: 22, // Showing ranks 4-25
-      itemBuilder: (context, index) {
-        final user = topUsers[index + 3];
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(user.avatarUrl),
-          ),
-          title: Text(user.name),
-          subtitle: Text('${user.score} pts'),
-          trailing: Text('#${index + 4}'),
-        );
-      },
+    return Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: 22, 
+        itemBuilder: (context, index) {
+          final user = topUsers[index + 3];
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(user.avatarUrl),
+            ),
+            title: Text(
+              user.name,
+              style: TextStyle(color: Colors.white),
+            ),
+            subtitle: Text(
+              '${user.score} pts',
+              style: TextStyle(color: Colors.white),
+            ),
+            trailing: Text(
+              '#${index + 4}',
+              style: TextStyle(color: Colors.white),
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -124,7 +151,8 @@ class LeaderboardScreen extends StatelessWidget {
               ],
             ),
           ),
-          Text('#$userRank', style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text('#$userRank',
+              style: const TextStyle(fontWeight: FontWeight.bold)),
         ],
       ),
     );

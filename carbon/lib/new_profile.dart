@@ -4,34 +4,32 @@ class EcoTrackInsightsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildProfileHeader(),
-              const SizedBox(height: 20),
-              const Text(
-                'Insights',
-                style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-              _buildInsightsRow(),
-              const SizedBox(height: 30),
-              const Text(
-                'Accomplishments',
-                style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-              _buildAccomplishmentCard('Eco champion', 'Reduce energy use by 20%!', 250, 500),
-              const SizedBox(height: 20),
-              _buildAccomplishmentCard('Green traveler', 'Use public transport twice a week!', 1, 2),
-              const Spacer(),
-              _buildBottomNavBar(),
-            ],
-          ),
+  
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildProfileHeader(),
+            const SizedBox(height: 20),
+            const Text(
+              'Insights',
+              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            _buildInsightsRow(),
+            const SizedBox(height: 30),
+            const Text(
+              'Accomplishments',
+              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            _buildAccomplishmentCard('Eco champion', 'Reduce energy use by 20%!', 250, 500),
+            const SizedBox(height: 20),
+            _buildAccomplishmentCard('Green traveler', 'Use public transport twice a week!', 1, 2),
+            const Spacer(),
+            _buildBottomNavBar(),
+          ],
         ),
       ),
     );

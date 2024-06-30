@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:carbon/fonts.dart';
+
+import 'fonts.dart';
 
 class EcoActivities extends StatelessWidget {
   const EcoActivities({super.key});
